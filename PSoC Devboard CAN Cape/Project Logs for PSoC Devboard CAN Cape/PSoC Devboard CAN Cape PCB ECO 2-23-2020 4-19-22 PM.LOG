@@ -1,0 +1,45 @@
+Removed Member From Class: ClassName=PSoC Devboard CAN Cape Member=*
+Change Component Designator: OldDesignator=* NewDesignator=CurrentDriver1
+Change Component Designator: OldDesignator=* NewDesignator=LED1
+Change Component Designator: OldDesignator=* NewDesignator=U1
+Change Component Designator: OldDesignator=U? NewDesignator=U2
+Added Component: Designator=C1(0805)
+Added Component: Designator=C2(0805)
+Added Component: Designator=C3(0805)
+Added Component: Designator=C4(0805)
+Added Component: Designator=R1(RESC0805(2012)_N)
+Add component (AddParameter): Name = "Case-EIA"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "2012"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.125 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "120.00 Ohm"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+5 Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=+5 Pin=C2-2
+Added Pin To Net: NetName=+5 Pin=C3-1
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=VDDIO Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C4-2
+Added Pin To Net: NetName=+5 Pin=CurrentDriver1-9
+Added Pin To Net: NetName=+5 Pin=CurrentDriver1-10
+Added Pin To Net: NetName=+5 Pin=LED1-4
+Added Pin To Net: NetName=GND Pin=R1-2
+Change Net Name : Old Net Name=Net*_1 New Net Name=NetCurrentDriver1_3
+Change Net Name : Old Net Name=Net*_2 New Net Name=NetCurrentDriver1_4
+Change Net Name : Old Net Name=Net*_3 New Net Name=NetCurrentDriver1_5
+Change Net Name : Old Net Name=Net*_49 New Net Name=NetU1_49
+Change Net Name : Old Net Name=Net*_50 New Net Name=NetU1_50
+Change Net Name : Old Net Name=Net*_51 New Net Name=NetU1_51
+Change Net Name : Old Net Name=Net*_55 New Net Name=NetCLK_3
+Added Pin To Net: NetName=NetCurrentDriver1_12 Pin=CurrentDriver1-12
+Added Pin To Net: NetName=NetCurrentDriver1_12 Pin=R1-1
+Added Net: Name=NetCurrentDriver1_12
+Added Class: Name=U_RGB_LEDs
+Added Member To Class: ClassName=PSoC Devboard CAN Cape Member=Component C2 .1uF
+Added Member To Class: ClassName=PSoC Devboard CAN Cape Member=Component C3 .1uF
+Added Member To Class: ClassName=PSoC Devboard CAN Cape Member=Component C4 .1uF
+Added Member To Class: ClassName=PSoC Devboard CAN Cape Member=Component U1 Component_1
+Added Room: Name=PSoC Devboard CAN Cape
+Added Room: Name=U_RGB_LEDs

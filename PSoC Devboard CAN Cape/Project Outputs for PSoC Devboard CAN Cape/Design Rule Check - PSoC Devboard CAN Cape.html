@@ -1,0 +1,418 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD20\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2/23/2020</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">10:27:30 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc" class="file"><acronym title="C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc">C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">4</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">22</td></tr>
+</table>
+</td>
+</table><a name="IDTT5V544TBIPWFLU2GEXI1HPLYPSNL2PXNMQJ4RJOSBELQDWLELOC"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSDQGYJBTS25DOOXP4BJWVYUQWO3SZ3MZS04ZD4JMFERG5YDUEB0D">Zero hole size multi-layer pad(s) detected</a></td>
+<td class="column2">4</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">4</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDACS5I4JEOJIVNJCUWOS3ITPIZHJ0HE05ZRY2DRF2SJRYRH5Q45QE">Clearance Constraint (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJNNQDI2CSVOVK2TAA1QSCJUTCDAOHKG4EDSIEWOTH0ECCSKK4BGD">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQLJQUYHSGKG2J3K3ZF2ORZTE2FEKL2UZQ4U0LAIHYXMGTFWAEG3D">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMG5AO05MW5LLLSBERVB4UWEMHGPDFVB40GVXFWM30SSFP2GT2UHL">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDX01VODNIRTGVBBVWLGBXL0MZ3MXGNIARJWQ3C2M5BCIOKJOBWZN">Width Constraint (Min=8mil) (Max=100mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUQ3RPIZ1IPYEDSD3JILDOFTFKOFBIHWTQCMLZ3EHIGH0D3HNE0NI">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYLIYT5DMZQ50PQCNABFLDZYRTH305BWWZQFZYCDBLVPDGHDE3PP">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNJHFS1FSWDQNJJAQVS1D1OQC4E2PMAJIBVJNHNJX1JCPI4QQ30TK">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKXLGZZQVEFYJHAFDAKTVREKPCE4YFWGM3X1TRRKXVFUJ02RFFOTC">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</a></td>
+<td class="column2">14</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5VFRYBATHITEPDEBUP245J4O0CSDME53RWK11TN4QNL3LYR0Z3ZB">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</a></td>
+<td class="column2">8</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDT3QMYNRGJOZQOOKDEABOA4AQXIO43IR1GQ5KOFKED13BZQW3OKPI">Silk to Silk (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0O1LW5OMYGC2ESDOMQK2WVRDFFHE0OIICJIMKMPLO3UEQTDMM0FI">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDSM3EVU0N5HFODQZAHDEU3QA2ZHWC5EEZGK3225PRLHFGMRPEHA3O">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">22</td>
+</tr>
+</table><br><a name="IDU2YGZAUMO2OQNDQDVZBSEGK50HOKQLJXLKHHZYJMJZAX4B2TWS5O"><h2>Warnings</h2></a><a name="IDSDQGYJBTS25DOOXP4BJWVYUQWO3SZ3MZS04ZD4JMFERG5YDUEB0D"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">Zero hole size multi-layer pad(s) detected</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2227.417mil|Location2.X=2294.472mil|Location1.Y=1848.874mil|Location2.Y=1900.181mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2227.417mil|Location2.X=2294.472mil|Location1.Y=1848.874mil|Location2.Y=1900.181mil|Absolute=True">Pad LED1-1(2260.945mil,1874.528mil) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=0mil|Location1.Y=0mil|Location2.Y=0mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=0mil|Location1.Y=0mil|Location2.Y=0mil|Absolute=True">Net NetCurrentDriver1_3</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2345.528mil|Location2.X=2412.583mil|Location1.Y=1848.874mil|Location2.Y=1900.181mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2345.528mil|Location2.X=2412.583mil|Location1.Y=1848.874mil|Location2.Y=1900.181mil|Absolute=True">Pad LED1-2(2379.055mil,1874.528mil) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=0mil|Location1.Y=0mil|Location2.Y=0mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=0mil|Location1.Y=0mil|Location2.Y=0mil|Absolute=True">Net NetCurrentDriver1_4</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2345.528mil|Location2.X=2412.583mil|Location1.Y=1789.819mil|Location2.Y=1841.126mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2345.528mil|Location2.X=2412.583mil|Location1.Y=1789.819mil|Location2.Y=1841.126mil|Absolute=True">Pad LED1-3(2379.055mil,1815.472mil) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=0mil|Location1.Y=0mil|Location2.Y=0mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=0mil|Location1.Y=0mil|Location2.Y=0mil|Absolute=True">Net NetCurrentDriver1_5</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2227.417mil|Location2.X=2294.472mil|Location1.Y=1789.819mil|Location2.Y=1841.126mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2227.417mil|Location2.X=2294.472mil|Location1.Y=1789.819mil|Location2.Y=1841.126mil|Absolute=True">Pad LED1-4(2260.945mil,1815.472mil) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=0mil|Location1.Y=0mil|Location2.Y=0mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=0mil|Location1.Y=0mil|Location2.Y=0mil|Absolute=True">Net +5</acronym></a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDKXLGZZQVEFYJHAFDAKTVREKPCE4YFWGM3X1TRRKXVFUJ02RFFOTC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2221.792mil|Location2.X=2233.042mil|Location1.Y=1839.375mil|Location2.Y=1850.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2221.792mil|Location2.X=2233.042mil|Location1.Y=1839.375mil|Location2.Y=1850.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (7.748mil &lt; 10mil) Between Pad LED1-1(2260.945mil,1874.528mil) on Multi-Layer And Pad LED1-4(2260.945mil,1815.472mil) on Multi-Layer [Top Solder] Mask Sliver [7.748mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2339.903mil|Location2.X=2351.153mil|Location1.Y=1839.375mil|Location2.Y=1850.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2339.903mil|Location2.X=2351.153mil|Location1.Y=1839.375mil|Location2.Y=1850.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (7.748mil &lt; 10mil) Between Pad LED1-2(2379.055mil,1874.528mil) on Multi-Layer And Pad LED1-3(2379.055mil,1815.472mil) on Multi-Layer [Top Solder] Mask Sliver [7.748mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2380.398mil|Location2.X=2391.648mil|Location1.Y=2136.659mil|Location2.Y=2147.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2380.398mil|Location2.X=2391.648mil|Location1.Y=2136.659mil|Location2.Y=2147.909mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.417mil &lt; 10mil) Between Pad U3-1(2373.228mil,2160mil) on Top Layer And Pad U3-2(2398.819mil,2160mil) on Top Layer [Top Solder] Mask Sliver [3.417mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2457.17mil|Location2.X=2468.42mil|Location1.Y=2365.005mil|Location2.Y=2376.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2457.17mil|Location2.X=2468.42mil|Location1.Y=2365.005mil|Location2.Y=2376.255mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.417mil &lt; 10mil) Between Pad U3-10(2475.591mil,2388.347mil) on Top Layer And Pad U3-11(2450mil,2388.347mil) on Top Layer [Top Solder] Mask Sliver [3.417mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2482.761mil|Location2.X=2494.011mil|Location1.Y=2365.005mil|Location2.Y=2376.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2482.761mil|Location2.X=2494.011mil|Location1.Y=2365.005mil|Location2.Y=2376.255mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.417mil &lt; 10mil) Between Pad U3-10(2475.591mil,2388.347mil) on Top Layer And Pad U3-9(2501.181mil,2388.347mil) on Top Layer [Top Solder] Mask Sliver [3.417mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2431.58mil|Location2.X=2442.83mil|Location1.Y=2365.005mil|Location2.Y=2376.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2431.58mil|Location2.X=2442.83mil|Location1.Y=2365.005mil|Location2.Y=2376.255mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.417mil &lt; 10mil) Between Pad U3-11(2450mil,2388.347mil) on Top Layer And Pad U3-12(2424.409mil,2388.347mil) on Top Layer [Top Solder] Mask Sliver [3.417mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2405.989mil|Location2.X=2417.239mil|Location1.Y=2365.005mil|Location2.Y=2376.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2405.989mil|Location2.X=2417.239mil|Location1.Y=2365.005mil|Location2.Y=2376.255mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.417mil &lt; 10mil) Between Pad U3-12(2424.409mil,2388.347mil) on Top Layer And Pad U3-13(2398.819mil,2388.347mil) on Top Layer [Top Solder] Mask Sliver [3.417mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2380.398mil|Location2.X=2391.648mil|Location1.Y=2365.005mil|Location2.Y=2376.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2380.398mil|Location2.X=2391.648mil|Location1.Y=2365.005mil|Location2.Y=2376.255mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.417mil &lt; 10mil) Between Pad U3-13(2398.819mil,2388.347mil) on Top Layer And Pad U3-14(2373.228mil,2388.347mil) on Top Layer [Top Solder] Mask Sliver [3.417mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2405.989mil|Location2.X=2417.239mil|Location1.Y=2136.659mil|Location2.Y=2147.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2405.989mil|Location2.X=2417.239mil|Location1.Y=2136.659mil|Location2.Y=2147.909mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.417mil &lt; 10mil) Between Pad U3-2(2398.819mil,2160mil) on Top Layer And Pad U3-3(2424.409mil,2160mil) on Top Layer [Top Solder] Mask Sliver [3.417mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2431.58mil|Location2.X=2442.83mil|Location1.Y=2136.659mil|Location2.Y=2147.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2431.58mil|Location2.X=2442.83mil|Location1.Y=2136.659mil|Location2.Y=2147.909mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.417mil &lt; 10mil) Between Pad U3-3(2424.409mil,2160mil) on Top Layer And Pad U3-4(2450mil,2160mil) on Top Layer [Top Solder] Mask Sliver [3.417mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2457.17mil|Location2.X=2468.42mil|Location1.Y=2136.659mil|Location2.Y=2147.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2457.17mil|Location2.X=2468.42mil|Location1.Y=2136.659mil|Location2.Y=2147.909mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.417mil &lt; 10mil) Between Pad U3-4(2450mil,2160mil) on Top Layer And Pad U3-5(2475.591mil,2160mil) on Top Layer [Top Solder] Mask Sliver [3.417mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2482.761mil|Location2.X=2494.011mil|Location1.Y=2136.659mil|Location2.Y=2147.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2482.761mil|Location2.X=2494.011mil|Location1.Y=2136.659mil|Location2.Y=2147.909mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.417mil &lt; 10mil) Between Pad U3-5(2475.591mil,2160mil) on Top Layer And Pad U3-6(2501.181mil,2160mil) on Top Layer [Top Solder] Mask Sliver [3.417mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2508.352mil|Location2.X=2519.602mil|Location1.Y=2136.659mil|Location2.Y=2147.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2508.352mil|Location2.X=2519.602mil|Location1.Y=2136.659mil|Location2.Y=2147.909mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.417mil &lt; 10mil) Between Pad U3-6(2501.181mil,2160mil) on Top Layer And Pad U3-7(2526.772mil,2160mil) on Top Layer [Top Solder] Mask Sliver [3.417mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2508.352mil|Location2.X=2519.602mil|Location1.Y=2365.005mil|Location2.Y=2376.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2508.352mil|Location2.X=2519.602mil|Location1.Y=2365.005mil|Location2.Y=2376.255mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.417mil &lt; 10mil) Between Pad U3-8(2526.772mil,2388.347mil) on Top Layer And Pad U3-9(2501.181mil,2388.347mil) on Top Layer [Top Solder] Mask Sliver [3.417mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID5VFRYBATHITEPDEBUP245J4O0CSDME53RWK11TN4QNL3LYR0Z3ZB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2264.749mil|Location2.X=2275.999mil|Location1.Y=4031.186mil|Location2.Y=4042.436mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2264.749mil|Location2.X=2275.999mil|Location1.Y=4031.186mil|Location2.Y=4042.436mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.858mil &lt; 10mil) Between Pad U2-1(2304.331mil,4025mil) on Top Layer And Track (2262.008mil,4003.543mil)(2262.008mil,4196.457mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [8.858mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2264.749mil|Location2.X=2275.999mil|Location1.Y=4081.186mil|Location2.Y=4092.436mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2264.749mil|Location2.X=2275.999mil|Location1.Y=4081.186mil|Location2.Y=4092.436mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.858mil &lt; 10mil) Between Pad U2-2(2304.331mil,4075mil) on Top Layer And Track (2262.008mil,4003.543mil)(2262.008mil,4196.457mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [8.858mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2264.749mil|Location2.X=2275.999mil|Location1.Y=4131.186mil|Location2.Y=4142.436mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2264.749mil|Location2.X=2275.999mil|Location1.Y=4131.186mil|Location2.Y=4142.436mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.858mil &lt; 10mil) Between Pad U2-3(2304.331mil,4125mil) on Top Layer And Track (2262.008mil,4003.543mil)(2262.008mil,4196.457mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [8.858mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2264.749mil|Location2.X=2275.999mil|Location1.Y=4181.186mil|Location2.Y=4192.436mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2264.749mil|Location2.X=2275.999mil|Location1.Y=4181.186mil|Location2.Y=4192.436mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.858mil &lt; 10mil) Between Pad U2-4(2304.331mil,4175mil) on Top Layer And Track (2262.008mil,4003.543mil)(2262.008mil,4196.457mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [8.858mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2124.001mil|Location2.X=2135.251mil|Location1.Y=4157.564mil|Location2.Y=4168.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2124.001mil|Location2.X=2135.251mil|Location1.Y=4157.564mil|Location2.Y=4168.814mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.858mil &lt; 10mil) Between Pad U2-5(2095.669mil,4175mil) on Top Layer And Track (2137.992mil,4003.543mil)(2137.992mil,4196.457mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [8.858mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2124.001mil|Location2.X=2135.251mil|Location1.Y=4107.564mil|Location2.Y=4118.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2124.001mil|Location2.X=2135.251mil|Location1.Y=4107.564mil|Location2.Y=4118.814mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.858mil &lt; 10mil) Between Pad U2-6(2095.669mil,4125mil) on Top Layer And Track (2137.992mil,4003.543mil)(2137.992mil,4196.457mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [8.858mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2124.001mil|Location2.X=2135.251mil|Location1.Y=4057.564mil|Location2.Y=4068.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2124.001mil|Location2.X=2135.251mil|Location1.Y=4057.564mil|Location2.Y=4068.814mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.858mil &lt; 10mil) Between Pad U2-7(2095.669mil,4075mil) on Top Layer And Track (2137.992mil,4003.543mil)(2137.992mil,4196.457mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [8.858mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2124.001mil|Location2.X=2135.251mil|Location1.Y=4007.564mil|Location2.Y=4018.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PSoC Devboard CAN Cape\PSoC Devboard CAN Cape.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2124.001mil|Location2.X=2135.251mil|Location1.Y=4007.564mil|Location2.Y=4018.814mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (8.858mil &lt; 10mil) Between Pad U2-8(2095.669mil,4025mil) on Top Layer And Track (2137.992mil,4003.543mil)(2137.992mil,4196.457mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [8.858mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

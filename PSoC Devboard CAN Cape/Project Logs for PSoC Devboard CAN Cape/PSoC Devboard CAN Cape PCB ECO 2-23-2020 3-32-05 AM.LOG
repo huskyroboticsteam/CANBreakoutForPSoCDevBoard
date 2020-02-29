@@ -1,0 +1,92 @@
+Change Component Footprint: Designator=* Old Footprint=CY8CKIT-043 New Footprint=ASMB-MTB1-0A3A2
+Change Component Comment : Designator=* Old Comment=Component_1 New Comment=RGB_LED
+Added Component: Designator=*(CY8CKIT-043)
+Added Component: Designator=*(NCP5623)
+Added Component: Designator=CAN1(0430450427)
+Added Component: Designator=CAN2(0430450427)
+Added Component: Designator=CAN5V(HDR1X3)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=CLK(SG-636)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "SG-636PCW 50.0000MC3: ROHS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://www.mouser.com/ds/2/137/G-636PCE_en-1003252.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Epson Timing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "SG-636PCW 50.0000MC3: ROHS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U?(SOIC127P600X175-8N)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Microchip"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "MCP2562-E/SN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "SO-8 Microchip"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/MCP2562-E/SN/Microchip/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+5 Pin=*-58
+Added Pin To Net: NetName=+5 Pin=CAN5V-1
+Added Pin To Net: NetName=+5 Pin=CLK-4
+Added Pin To Net: NetName=+5 Pin=U?-3
+Added Net: Name=+5
+Added Pin To Net: NetName=GND Pin=*-2
+Added Pin To Net: NetName=GND Pin=*-6
+Added Pin To Net: NetName=GND Pin=*-28
+Added Pin To Net: NetName=GND Pin=*-30
+Added Pin To Net: NetName=GND Pin=*-57
+Added Pin To Net: NetName=GND Pin=CAN1-1
+Added Pin To Net: NetName=GND Pin=CAN2-1
+Added Pin To Net: NetName=GND Pin=CLK-1
+Added Pin To Net: NetName=GND Pin=CLK-2
+Added Pin To Net: NetName=GND Pin=U?-2
+Added Net: Name=GND
+Added Pin To Net: NetName=Net*_1 Pin=*-1
+Added Pin To Net: NetName=Net*_1 Pin=*-3
+Added Net: Name=Net*_1
+Added Pin To Net: NetName=Net*_2 Pin=*-2
+Added Pin To Net: NetName=Net*_2 Pin=*-4
+Added Net: Name=Net*_2
+Added Pin To Net: NetName=Net*_3 Pin=*-3
+Added Pin To Net: NetName=Net*_3 Pin=*-5
+Added Net: Name=Net*_3
+Added Pin To Net: NetName=Net*_49 Pin=*-49
+Added Pin To Net: NetName=Net*_49 Pin=U?-4
+Added Net: Name=Net*_49
+Added Pin To Net: NetName=Net*_50 Pin=*-50
+Added Pin To Net: NetName=Net*_50 Pin=U?-1
+Added Net: Name=Net*_50
+Added Pin To Net: NetName=Net*_51 Pin=*-51
+Added Pin To Net: NetName=Net*_51 Pin=U?-8
+Added Net: Name=Net*_51
+Added Pin To Net: NetName=Net*_55 Pin=*-55
+Added Pin To Net: NetName=Net*_55 Pin=CLK-3
+Added Net: Name=Net*_55
+Added Pin To Net: NetName=NetCAN1_2 Pin=CAN1-2
+Added Pin To Net: NetName=NetCAN1_2 Pin=CAN2-2
+Added Pin To Net: NetName=NetCAN1_2 Pin=CAN5V-2
+Added Net: Name=NetCAN1_2
+Added Pin To Net: NetName=NetCAN1_3 Pin=CAN1-3
+Added Pin To Net: NetName=NetCAN1_3 Pin=CAN2-3
+Added Pin To Net: NetName=NetCAN1_3 Pin=U?-7
+Added Net: Name=NetCAN1_3
+Added Pin To Net: NetName=NetCAN1_4 Pin=CAN1-4
+Added Pin To Net: NetName=NetCAN1_4 Pin=CAN2-4
+Added Pin To Net: NetName=NetCAN1_4 Pin=U?-6
+Added Net: Name=NetCAN1_4
+Added Pin To Net: NetName=SCL Pin=*-11
+Added Pin To Net: NetName=SCL Pin=*-40
+Added Net: Name=SCL
+Added Pin To Net: NetName=SDA Pin=*-13
+Added Pin To Net: NetName=SDA Pin=*-41
+Added Net: Name=SDA
+Added Pin To Net: NetName=VDDIO Pin=*-29
+Added Pin To Net: NetName=VDDIO Pin=U?-5
+Added Net: Name=VDDIO
+Added Member To Class: ClassName=PSoC Devboard CAN Cape Member=Component * Component_1
+Added Member To Class: ClassName=PSoC Devboard CAN Cape Member=Component * ConstantCurrentDriver
+Added Member To Class: ClassName=PSoC Devboard CAN Cape Member=Component CAN1 Molex Micro
+Added Member To Class: ClassName=PSoC Devboard CAN Cape Member=Component CAN2 Molex Micro
+Added Member To Class: ClassName=PSoC Devboard CAN Cape Member=Component CAN5V Header 3
+Added Member To Class: ClassName=PSoC Devboard CAN Cape Member=Component CLK SG-636PCW_50.0000MC3__ROHS
+Added Member To Class: ClassName=PSoC Devboard CAN Cape Member=Component U? MCP2562-E/SN
+Added Room: Name=PSoC Devboard CAN Cape

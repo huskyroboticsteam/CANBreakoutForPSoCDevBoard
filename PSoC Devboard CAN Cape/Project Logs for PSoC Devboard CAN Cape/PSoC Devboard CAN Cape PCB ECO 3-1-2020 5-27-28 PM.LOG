@@ -1,0 +1,11 @@
+Added Component: Designator=R2(RESC0805(2012)_N)
+Add component (AddParameter): Name = "Case-EIA"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "2012"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.125 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "120.00 Ohm"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetCAN1_4 Pin=R2-1
+Added Pin To Net: NetName=NetCAN_Jumper_3 Pin=R2-2
+Added Member To Class: ClassName=U_RGB_LEDs Member=Component CurrentDriver1 ConstantCurrentDriver
+Added Member To Class: ClassName=PSoC Devboard CAN Cape Member=Component R2 120

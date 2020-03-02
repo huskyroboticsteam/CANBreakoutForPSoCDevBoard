@@ -88,6 +88,23 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=OMXOUKNB
 
+[Document4]
+DocumentPath=..\..\Altium-Standard-Library-2019-2020\Project Outputs for Husky Robotics Standard Library 2019-2020\Husky Robotics Standard Library 2019-2020.IntLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
 [GeneratedDocument1]
 DocumentPath=Project Outputs for PSoC Devboard CAN Cape\Design Rule Check - PSoC Devboard CAN Cape.html
 DItemRevisionGUID=
